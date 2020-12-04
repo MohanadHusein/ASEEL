@@ -1,0 +1,952 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="ASEEL">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.000117800965739838 3.60395530274273E-09 0.00533195829127769"
+        rpy="0 0 0" />
+      <mass
+        value="0.90458187696356" />
+      <inertia
+        ixx="0.000933635377152713"
+        ixy="-2.59061192096811E-11"
+        ixz="6.47739534078497E-06"
+        iyy="0.00144500934952677"
+        iyz="-5.95495047173037E-10"
+        izz="0.00214373311610833" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="FR_shoulder">
+    <inertial>
+      <origin
+        xyz="-0.000970287928558175 1.43784454992407E-06 -0.0177365778335415"
+        rpy="0 0 0" />
+      <mass
+        value="0.126030436122441" />
+      <inertia
+        ixx="4.59863338380217E-05"
+        ixy="7.84858176738146E-09"
+        ixz="-1.13222032788304E-06"
+        iyy="6.27279144073342E-05"
+        iyz="3.40708639959301E-09"
+        izz="3.90648826225906E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FR_shoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FR_shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_base_shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="0.1549 -0.0530000535776146 0"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="FR_shoulder" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.0944"
+      upper="2.0944"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FR_hip">
+    <inertial>
+      <origin
+        xyz="0.00077187383719951 -0.0606076511327016 0.0155152005506251"
+        rpy="0 0 0" />
+      <mass
+        value="0.182869560751865" />
+      <inertia
+        ixx="0.0002523448939588"
+        ixy="-2.87807763554777E-06"
+        ixz="-3.39518871085523E-08"
+        iyy="3.83064999571908E-05"
+        iyz="-1.48134860485744E-07"
+        izz="0.000242515907395856" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FR_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FR_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_shoulder_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0.0439 0 0"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="FR_shoulder" />
+    <child
+      link="FR_hip" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.0944"
+      upper="2.0944"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FR_leg">
+    <inertial>
+      <origin
+        xyz="1.43730509993834E-07 -0.0562168566562656 -3.97795066264806E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0582935395770901" />
+      <inertia
+        ixx="0.000152157231305915"
+        ixy="-8.88216209861702E-10"
+        ixz="-4.37278190964717E-11"
+        iyy="4.04284990910996E-06"
+        iyz="2.21081132430397E-08"
+        izz="0.000153478811159089" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FR_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FR_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_hip_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.15 0"
+      rpy="0 0 0" />
+    <parent
+      link="FR_hip" />
+    <child
+      link="FR_leg" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0.5236"
+      upper="2.618"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FR_toe">
+    <inertial>
+      <origin
+        xyz="-0.000596190546970826 0.0120407485206023 3.84783939433309E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.00928636527042137" />
+      <inertia
+        ixx="9.48247904111129E-07"
+        ixy="3.28936864772133E-09"
+        ixz="1.92578922406109E-11"
+        iyy="1.56455944284968E-06"
+        iyz="-3.1633142839233E-13"
+        izz="1.66150195785123E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FR_toe.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FR_toe.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_leg_toe_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.15 0"
+      rpy="0 0 0" />
+    <parent
+      link="FR_leg" />
+    <child
+      link="FR_toe" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="BR_shoulder">
+    <inertial>
+      <origin
+        xyz="-0.000970287928558189 -1.43784454991467E-06 0.0177365778335414"
+        rpy="0 0 0" />
+      <mass
+        value="0.126030436122441" />
+      <inertia
+        ixx="4.59863338380217E-05"
+        ixy="-7.84858176737931E-09"
+        ixz="1.13222032788304E-06"
+        iyy="6.27279144073342E-05"
+        iyz="3.40708639959264E-09"
+        izz="3.90648826225906E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BR_shoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BR_shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BR_base_shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="-0.1549 -0.053 0"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="BR_shoulder" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.0944"
+      upper="2.0944"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BR_hip">
+    <inertial>
+      <origin
+        xyz="0.000771873837199455 -0.0606076511327016 0.0155152005506251"
+        rpy="0 0 0" />
+      <mass
+        value="0.182869560751866" />
+      <inertia
+        ixx="0.0002523448939588"
+        ixy="-2.87807763554778E-06"
+        ixz="-3.39518871085365E-08"
+        iyy="3.83064999571909E-05"
+        iyz="-1.4813486048576E-07"
+        izz="0.000242515907395856" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BR_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BR_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BR_shoulder_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0.0439 0 0"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="BR_shoulder" />
+    <child
+      link="BR_hip" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.0944"
+      upper="2.0944"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BR_leg">
+    <inertial>
+      <origin
+        xyz="1.43730509993834E-07 -0.0562168566562654 -3.97795066264806E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0582935395770903" />
+      <inertia
+        ixx="0.000152157231305894"
+        ixy="-8.88216827581747E-10"
+        ixz="-4.37278191180572E-11"
+        iyy="4.04284990775868E-06"
+        iyz="2.21081132430353E-08"
+        izz="0.000153478811157716" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BR_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BR_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BR_hip_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.15 0"
+      rpy="0 0 0" />
+    <parent
+      link="BR_hip" />
+    <child
+      link="BR_leg" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0.5236"
+      upper="2.618"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BR_toe">
+    <inertial>
+      <origin
+        xyz="-0.0005961905469688 0.0120407485206022 3.84783943596645E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.00928636527042151" />
+      <inertia
+        ixx="9.48247904111135E-07"
+        ixy="3.2893686477132E-09"
+        ixz="1.92578922435809E-11"
+        iyy="1.56455944284962E-06"
+        iyz="-3.16331431284772E-13"
+        izz="1.66150195785117E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BR_toe.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BR_toe.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BR_leg_toe"
+    type="fixed">
+    <origin
+      xyz="0 -0.150000000000034 0"
+      rpy="0 0 0" />
+    <parent
+      link="BR_leg" />
+    <child
+      link="BR_toe" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="FL_shoulder">
+    <inertial>
+      <origin
+        xyz="-0.000970287928558175 -1.43784454991988E-06 0.0177365778335414"
+        rpy="0 0 0" />
+      <mass
+        value="0.126030436122441" />
+      <inertia
+        ixx="4.59863338380217E-05"
+        ixy="-7.84858176737605E-09"
+        ixz="1.13222032788304E-06"
+        iyy="6.27279144073342E-05"
+        iyz="3.40708639959327E-09"
+        izz="3.90648826225906E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FL_shoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FL_shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_base_shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="0.1549 0.053 0"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="FL_shoulder" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.0944"
+      upper="2.0944"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FL_hip">
+    <inertial>
+      <origin
+        xyz="-0.000769768516371561 -0.0606084345817354 0.0155158302503211"
+        rpy="0 0 0" />
+      <mass
+        value="0.182862361189565" />
+      <inertia
+        ixx="0.000252344247771645"
+        ixy="2.87315613778536E-06"
+        ixz="4.09648863235255E-08"
+        iyy="3.83073180128586E-05"
+        iyz="-1.4816800661719E-07"
+        izz="0.000242516393871208" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FL_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FL_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_shoulder_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0.0439 0 0"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="FL_shoulder" />
+    <child
+      link="FL_hip" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.0944"
+      upper="2.0944"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FL_leg">
+    <inertial>
+      <origin
+        xyz="1.43730509938322E-07 -0.0562168566562656 -3.97795066263418E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0582935395770901" />
+      <inertia
+        ixx="0.000152157231305841"
+        ixy="-8.88216415399482E-10"
+        ixz="-4.37278191441204E-11"
+        iyy="4.04284990940124E-06"
+        iyz="2.21081132429994E-08"
+        izz="0.000153478811159306" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FL_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FL_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_hip_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.15 0"
+      rpy="3.14159265358979 0 3.14159265358979" />
+    <parent
+      link="FL_hip" />
+    <child
+      link="FL_leg" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0.5236"
+      upper="2.618"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FL_toe">
+    <inertial>
+      <origin
+        xyz="-0.000596190546969383 0.0120407485206024 3.84783942208866E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.00928636527042142" />
+      <inertia
+        ixx="9.48247904111061E-07"
+        ixy="3.28936864632139E-09"
+        ixz="1.92578922390329E-11"
+        iyy="1.56455944284956E-06"
+        iyz="-3.16331429548457E-13"
+        izz="1.66150195785103E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FL_toe.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/FL_toe.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_leg_toe_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.149999999999966 0"
+      rpy="0 0 0" />
+    <parent
+      link="FL_leg" />
+    <child
+      link="FL_toe" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="BL_shoulder">
+    <inertial>
+      <origin
+        xyz="-0.000970287928558182 1.43784454991182E-06 -0.0177365778335414"
+        rpy="0 0 0" />
+      <mass
+        value="0.126030436122441" />
+      <inertia
+        ixx="4.59863338380217E-05"
+        ixy="7.84858176738043E-09"
+        ixz="-1.13222032788304E-06"
+        iyy="6.27279144073342E-05"
+        iyz="3.40708639959423E-09"
+        izz="3.90648826225906E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BL_shoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BL_shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BL_base_shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="-0.1549 0.0530000535776146 0"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="BL_shoulder" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.0944"
+      upper="2.0944"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BL_hip">
+    <inertial>
+      <origin
+        xyz="-0.000769768516371588 -0.0606084345817354 0.0155158302503211"
+        rpy="0 0 0" />
+      <mass
+        value="0.182862361189565" />
+      <inertia
+        ixx="0.000252344247771645"
+        ixy="2.87315613778526E-06"
+        ixz="4.09648863235187E-08"
+        iyy="3.83073180128585E-05"
+        iyz="-1.48168006617098E-07"
+        izz="0.000242516393871207" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BL_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BL_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BL_shoulder_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0.0439 0 0"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="BL_shoulder" />
+    <child
+      link="BL_hip" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.0944"
+      upper="2.0944"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BL_leg">
+    <inertial>
+      <origin
+        xyz="1.43730510104856E-07 -0.0562168566562657 -3.97795066264806E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.05829353957709" />
+      <inertia
+        ixx="0.000152157231305869"
+        ixy="-8.88215150243676E-10"
+        ixz="-4.37278191082278E-11"
+        iyy="4.04284990642428E-06"
+        iyz="2.21081132430399E-08"
+        izz="0.000153478811156357" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BL_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BL_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BL_hip_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.15 0"
+      rpy="3.14159265358979 0 3.14159265358979" />
+    <parent
+      link="BL_hip" />
+    <child
+      link="BL_leg" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0.5236"
+      upper="2.618"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="BL_toe">
+    <inertial>
+      <origin
+        xyz="-0.000596190546968411 0.0120407485206018 3.84783944984424E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.0092863652704216" />
+      <inertia
+        ixx="9.48247904111144E-07"
+        ixy="3.28936864772406E-09"
+        ixz="1.92578922441166E-11"
+        iyy="1.56455944284961E-06"
+        iyz="-3.16331434958039E-13"
+        izz="1.66150195785116E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BL_toe.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ASEEL/meshes/BL_toe.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BL_leg_toe_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.150000000000033 0"
+      rpy="0 0 0" />
+    <parent
+      link="BL_leg" />
+    <child
+      link="BL_toe" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
