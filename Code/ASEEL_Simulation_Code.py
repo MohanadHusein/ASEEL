@@ -4,6 +4,7 @@ import pybullet_data
 import numpy as np
 from scipy import interpolate
 import math
+import os
 physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
 p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
 p.setGravity(0,0,-10)
@@ -11,7 +12,7 @@ planeId = p.loadURDF("plane.urdf")
 cubeStartPos = [0,0,.5]
 cubeStartOrientation = p.getQuaternionFromEuler([0,0,0])
 
-robot = p.loadURDF("\\Desktop\\ASEEL\\urdf\\ASEEL.urdf",cubeStartPos, cubeStartOrientation) # path to URDF file
+robot = p.loadURDF(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "URDF", "urdf", "ASEEL.urdf"),cubeStartPos, cubeStartOrientation) # path to URDF file
 
 #
 # slide0 = p.addUserDebugParameter("base_FR_shoulder_joint", -120, 120, 1)
@@ -112,7 +113,7 @@ def move_ef(leg, new_loc):
         p.stepSimulation()
         time.sleep(1. / 240.)
     else:
-        print(f'shit one of the values is nan: angle0 = {math.degrees(a)}, angle1 = {math.degrees(b)}, angle2 = {math.degrees(c)}')
+        print(f'one of the values is nan: angle0 = {math.degrees(a)}, angle1 = {math.degrees(b)}, angle2 = {math.degrees(c)}')
 
 def translate_torso(direction, value):
     if direction is 'up':
